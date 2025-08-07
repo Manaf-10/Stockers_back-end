@@ -83,7 +83,7 @@ const updatePassword = async (req, res) => {
         id: user.id,
         email: user.email
       }
-      return res.send({ msg: 'Password Updated!' })
+      return res.send({ msg: 'Password Updated!', user: payload })
     }
   } catch (error) {
     console.log(error)
@@ -96,9 +96,28 @@ const CheckSession = async (req, res) => {
   res.status(200).send(payload)
 }
 
+const updateProfile = async (req, res) => {
+  try {
+    // console.log(res.locals)
+    if (res.locals.payload.id === req.params.user_id) {
+      //only updtes if user id matches parameter
+      const user = await User.findByIdAndUpdate(req.params.user_id, req.body, {
+        new: true
+      })
+      res.send(user)
+    } else {
+      return res.send({ msg: 'unauthoriezed' })
+    }
+  } catch (error) {
+    console.log(error)
+    res.status(401).send({ status: 'Error' })
+  }
+}
+
 module.exports = {
   registerUser,
   login,
   updatePassword,
-  CheckSession
+  CheckSession,
+  updateProfile
 }
