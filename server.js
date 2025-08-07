@@ -4,6 +4,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const AuthRouter = require('./routes/AuthRouter')
+const PostRouter = require('./routes/PostRouter')
 
 const PORT = process.env.PORT || 3000
 const db = require('./db')

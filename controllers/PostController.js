@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const middleware = require('../middleware/authMiddleware')
 
-const ReadPost = async (req, req) => {
+const ReadPost = async (req, res) => {
   try {
     // let verifyToken = await middleware.verifyToken()
     const posts = await Post.find({})
