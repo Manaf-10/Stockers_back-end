@@ -13,11 +13,9 @@ const registerUser = async (req, res) => {
     let existingUser = await User.findOne({ username: username })
     let existingEmail = await User.findOne({ email: email })
     if (existingUser) {
-      return res.send('A user with that user name has already been registered!')
+      return res.send({ msg: 'User already exists' })
     } else if (existingEmail) {
-      return res
-        .status(400)
-        .send('A user with that user email has already been registered!')
+      return res.send({ msg: 'Email already exists' })
     } else {
       const user = await User.create({
         username,
@@ -40,7 +38,7 @@ const login = async (req, res) => {
 
     const user = await User.findOne({ username })
     if (!user) {
-      return res.status(400).send({ msg: "user doesn't exist" })
+      return res.send({ msg: "user doesn't exist" })
     }
     let matched = await middleware.comparePassword(
       password,
@@ -59,8 +57,9 @@ const login = async (req, res) => {
       // console.log(token)
 
       return res.status(200).send({ user: payload, token: token })
+    } else {
+      return res.send({ msg: 'Wrong password' })
     }
-    res.status(401).send({ status: 'Error' })
   } catch (error) {
     console.log(error)
     res.status(401).send({ status: 'Error' })
@@ -84,9 +83,7 @@ const updatePassword = async (req, res) => {
         id: user.id,
         email: user.email
       }
-      return res
-        .status(200)
-        .send({ status: 'Password Updated!', user: payload })
+      return res.send({ msg: 'Password Updated!' })
     }
   } catch (error) {
     console.log(error)
