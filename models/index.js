@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
 const userSchema = require('./User')
+const PostSchema = require('./post')
 
 const User = mongoose.model('User', userSchema)
+const Post = mongoose.model('Post', PostSchema)
 
 module.exports = {
-  User
+  User,
+  Post
 }
