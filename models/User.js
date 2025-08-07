@@ -5,7 +5,7 @@ const UserSchema = new Schema(
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     passwordDigest: { type: String, required: true },
-    avatar: { typre: String }
+    avatar: { type: String }
     // ,posts: [PostSchema]
   },
   { timestamps: true }
