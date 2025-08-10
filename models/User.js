@@ -6,7 +6,6 @@ const UserSchema = new Schema(
     email: { type: String, required: true, unique: true },
     passwordDigest: { type: String, required: true },
     avatar: { type: String }
-    // ,posts: [PostSchema]
   },
   { timestamps: true }
 )
