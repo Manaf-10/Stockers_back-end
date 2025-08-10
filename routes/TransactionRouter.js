@@ -2,18 +2,23 @@ const router = require('express').Router()
 const controller = require('../controllers/TransactionController')
 const middleware = require('../middleware/authMiddleware')
 
-router.get('/', controller.showTransation)
+router.get(
+  '/:user_id',
+  controller.showTransation,
+  middleware.stripToken,
+  middleware.verifyToken
+)
 router.post(
-  '/',
+  '/user_id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.CreateTransaction
 )
 router.put(
-  '/:post_id',
-  controller.CloseTransaction,
+  '/:transaction_id',
+  middleware.stripToken,
   middleware.verifyToken,
-  controller.CreateTransaction
+  controller.CloseTransaction,
 )
 
 module.exports = router
