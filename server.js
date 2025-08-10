@@ -5,8 +5,8 @@ require('dotenv').config()
 
 const AuthRouter = require('./routes/AuthRouter')
 const PostRouter = require('./routes/PostRouter')
+const StocksRouter = require('./routes/StocksRouter')
 const TransactionRouter = require('./routes/TransactionRouter')
-
 const PORT = process.env.PORT || 3000
 const db = require('./db')
 
@@ -19,9 +19,13 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/auth', AuthRouter)
 app.use('/posts', PostRouter)
+app.use('/stocks', StocksRouter)
+
+
+app.use('/auth', AuthRouter)
+app.use('/posts', PostRouter)
 
 app.use('/transactions', TransactionRouter)
-
 
 app.use('/', (req, res) => {
   res.send(`Connected!`)

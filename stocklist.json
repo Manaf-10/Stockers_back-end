@@ -1,0 +1,130 @@
+[
+  {
+    "symbol": "AAPL",
+    "price": {
+      "current": 175.34,
+      "volume": 58345678
+    },
+    "market": {
+      "currency": "USD",
+      "marketCap": 2735000000000,
+      "peRatio": 28.5,
+      "exchange": "NASDAQ"
+    },
+    "company": {
+      "sector": "Technology"
+    }
+  },
+  {
+    "symbol": "MSFT",
+    "price": {
+      "current": 328.39,
+      "volume": 21456789
+    },
+    "market": {
+      "currency": "USD",
+      "marketCap": 2443000000000,
+      "peRatio": 32.7,
+      "exchange": "NASDAQ"
+    },
+    "company": {
+      "sector": "Technology"
+    }
+  },
+  {
+    "symbol": "AMZN",
+    "price": {
+      "current": 178.75,
+      "volume": 34567890
+    },
+    "market": {
+      "currency": "USD",
+      "marketCap": 1856000000000,
+      "peRatio": 58.2,
+      "exchange": "NASDAQ"
+    },
+    "company": {
+      "sector": "Consumer Cyclical"
+    }
+  },
+  {
+    "symbol": "JNJ",
+    "price": {
+      "current": 157.22,
+      "volume": 8765432
+    },
+    "market": {
+      "currency": "USD",
+      "marketCap": 379800000000,
+      "peRatio": 15.8,
+      "exchange": "NYSE"
+    },
+    "company": {
+      "sector": "Healthcare"
+    }
+  },
+  {
+    "symbol": "XOM",
+    "price": {
+      "current": 118.45,
+      "volume": 15678901
+    },
+    "market": {
+      "currency": "USD",
+      "marketCap": 473200000000,
+      "peRatio": 12.3,
+      "exchange": "NYSE"
+    },
+    "company": {
+      "sector": "Energy"
+    }
+  },
+  {
+    "symbol": "JPM",
+    "price": {
+      "current": 198.67,
+      "volume": 9876543
+    },
+    "market": {
+      "currency": "USD",
+      "marketCap": 570300000000,
+      "peRatio": 11.9,
+      "exchange": "NYSE"
+    },
+    "company": {
+      "sector": "Financial Services"
+    }
+  },
+  {
+    "symbol": "WMT",
+    "price": {
+      "current": 165.32,
+      "volume": 7654321
+    },
+    "market": {
+      "currency": "USD",
+      "marketCap": 445100000000,
+      "peRatio": 25.4,
+      "exchange": "NYSE"
+    },
+    "company": {
+      "sector": "Consumer Defensive"
+    }
+  },
+  {
+    "symbol": "PG",
+    "price": {
+      "current": 156.78,
+      "volume": 6543210
+    },
+    "market": {
+      "currency": "USD",
+      "marketCap": 369800000000,
+      "peRatio": 26.7,
+      "exchange": "NYSE"
+    },
+    "company": {
+      "sector": "Consumer Defensive"
+    }
+  }
+]
