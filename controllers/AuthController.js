@@ -6,10 +6,11 @@ const middleware = require("../middleware/authMiddleware");
 
 const registerUser = async (req, res) => {
   try {
+    console.log(req.body);
     const { username, email, password } = req.body;
-    const avatar = req.file ? req.file.path : "/avatars/default_avatar.jpg";
+    const avatar = "/avatars/default_avatar.jpg";
     let passwordDigest = await middleware.hashPassword(password);
-
+    console.log("pfp " + req.body.avatar);
     let existingUser = await User.findOne({ username: username });
     let existingEmail = await User.findOne({ email: email });
     if (existingUser) {
@@ -48,7 +49,7 @@ const login = async (req, res) => {
       let payload = {
         id: user.id,
         email: user.email,
-        avatar: user.avatar.file,
+        avatar: user.avatar,
         username: user.username,
       };
       // let token = middleware.createToken(payload)
