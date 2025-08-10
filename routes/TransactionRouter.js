@@ -12,12 +12,12 @@ router.get(
 
 router.get(
   '/:user_id',
-  controller.showTransation,
   middleware.stripToken,
-  middleware.verifyToken
+  middleware.verifyToken,
+  controller.showTransation
 )
 router.post(
-  '/user_id',
+  '/:user_id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.CreateTransaction
