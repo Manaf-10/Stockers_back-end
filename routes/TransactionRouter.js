@@ -9,18 +9,25 @@ router.get(
   middleware.stripToken,
   middleware.verifyToken,
   controller.showTransation
+
+router.get(
+  '/:user_id',
+  controller.showTransation,
+  middleware.stripToken,
+  middleware.verifyToken
 )
 router.post(
-  '/',
+  '/user_id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.CreateTransaction
 )
 router.put(
   '/:transaction_id',
-  controller.CloseTransaction,
+
+  middleware.stripToken,
   middleware.verifyToken,
-  controller.CreateTransaction
+  controller.CloseTransaction,
 )
 
 module.exports = router
