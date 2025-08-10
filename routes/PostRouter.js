@@ -11,15 +11,15 @@ router.post(
 )
 router.put(
   '/:post_id',
-  controller.UpdatePost,
+  middleware.stripToken,
   middleware.verifyToken,
-  controller.CreatePost
+  controller.UpdatePost
 )
 router.delete(
   '/:post_id',
-  controller.DeletePost,
+  middleware.stripToken,
   middleware.verifyToken,
-  controller.CreatePost
+  controller.DeletePost,
 )
 
 module.exports = router
