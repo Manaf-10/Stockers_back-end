@@ -8,7 +8,7 @@ router.get(
   '/',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.showTransation
+  controller.showTransation)
 
 router.get(
   '/:user_id',
