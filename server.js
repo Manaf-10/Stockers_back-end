@@ -20,9 +20,16 @@ app.use("/auth", AuthRouter);
 app.use("/posts", PostRouter);
 app.use("/stocks", StocksRouter);
 
-app.use("/", (req, res) => {
-  res.send(`Connected!`);
-});
+app.use('/auth', AuthRouter)
+app.use('/posts', PostRouter)
+
+app.use('/transactions', TransactionRouter)
+
+
+app.use('/', (req, res) => {
+  res.send(`Connected!`)
+})
+
 
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`);

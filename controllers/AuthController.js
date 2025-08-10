@@ -36,6 +36,7 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+
     const user = await User.findOne({ email });
     if (!user) {
       return res.send({ msg: "user doesn't exist" });
@@ -114,10 +115,25 @@ const updateProfile = async (req, res) => {
   }
 };
 
+const viewProfile = async (req, res) => {
+  try {
+    if (res.locals.payload.id === req.params.user_id) {
+      const user = await User.findById(req.params.user_id)
+      res.send(user)
+    }
+    res.status(401).send({ status: 'Error' })
+  } catch (error) {
+    console.log(error)
+    res.status(401).send({ status: 'Error' })
+  }
+}
+
 module.exports = {
   registerUser,
   login,
   updatePassword,
   CheckSession,
   updateProfile,
-};
+  viewProfile
+}
+
