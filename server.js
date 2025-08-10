@@ -1,36 +1,35 @@
-const express = require("express");
-const logger = require("morgan");
-const cors = require("cors");
-require("dotenv").config();
+const express = require('express')
+const logger = require('morgan')
+const cors = require('cors')
+require('dotenv').config()
 
-const AuthRouter = require("./routes/AuthRouter");
-const PostRouter = require("./routes/PostRouter");
-const StocksRouter = require("./routes/StocksRouter");
-const PORT = process.env.PORT || 3000;
-const db = require("./db");
+const AuthRouter = require('./routes/AuthRouter')
+const PostRouter = require('./routes/PostRouter')
+const StocksRouter = require('./routes/StocksRouter')
+const TransactionRouter = require('./routes/TransactionRouter')
+const PORT = process.env.PORT || 3000
+const db = require('./db')
 
-const app = express();
+const app = express()
 
-app.use(cors());
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(cors())
+app.use(logger('dev'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-app.use("/auth", AuthRouter);
-app.use("/posts", PostRouter);
-app.use("/stocks", StocksRouter);
+app.use('/auth', AuthRouter)
+app.use('/posts', PostRouter)
+app.use('/stocks', StocksRouter)
 
 app.use('/auth', AuthRouter)
 app.use('/posts', PostRouter)
 
 app.use('/transactions', TransactionRouter)
 
-
 app.use('/', (req, res) => {
   res.send(`Connected!`)
 })
 
-
 app.listen(PORT, () => {
-  console.log(`Running on Port ${PORT}`);
-});
+  console.log(`Running on Port ${PORT}`)
+})
