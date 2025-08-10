@@ -12,6 +12,13 @@ router.put(
   controller.updatePassword
 )
 
+//update profile
+router.put(
+  '/updateProfile/:user_id',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.updateProfile
+)
 router.get(
   '/session',
   middleware.stripToken,
