@@ -20,11 +20,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/auth', AuthRouter)
 app.use('/posts', PostRouter)
 app.use('/stocks', StocksRouter)
-
-
-app.use('/auth', AuthRouter)
-app.use('/posts', PostRouter)
-
 app.use('/transactions', TransactionRouter)
 
 app.use('/', (req, res) => {
