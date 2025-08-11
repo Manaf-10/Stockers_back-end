@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, List } = require('../models')
 require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
@@ -24,6 +24,8 @@ const registerUser = async (req, res) => {
         passwordDigest,
         avatar
       })
+      const owndList = await List.create({ type: 'owned', owner: user._id })
+      const TrkdList = await List.create({ type: 'tracked', owner: user._id })
       res.status(200).send(user)
     }
     res.status(401).send({ status: 'Error' })
@@ -95,7 +97,6 @@ const updatePassword = async (req, res) => {
 
 const CheckSession = async (req, res) => {
   try {
-    console.log('hi')
     const { payload } = res.locals
     res.status(200).send(payload)
   } catch (error) {
