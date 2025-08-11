@@ -8,17 +8,14 @@ router.post('/login', controller.login)
 
 router.post('/register', upload.single('avatar'), controller.registerUser)
 
-router.post('/login', controller.login)
-router.post('/register', controller.registerUser)
-router.post('/login', controller.login)
-router.post('/register', controller.registerUser)
 
 router.get(
-  '/session',
+  "/session",
   middleware.stripToken,
   middleware.verifyToken,
   controller.CheckSession
-)
+);
+
 
 router.get(
   '/:user_id',
@@ -41,6 +38,8 @@ router.put(
   middleware.stripToken,
   middleware.verifyToken,
   controller.updateProfile
-)
+
+);
+
 
 module.exports = router

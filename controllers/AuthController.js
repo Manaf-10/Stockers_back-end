@@ -6,11 +6,13 @@ const middleware = require('../middleware/authMiddleware')
 
 const registerUser = async (req, res) => {
   try {
-    const { username, email, password } = req.body
-    const avatar = '/avatars/default_avatar.jpg'
-    let passwordDigest = await middleware.hashPassword(password)
-    let existingUser = await User.findOne({ username: username })
-    let existingEmail = await User.findOne({ email: email })
+
+    const { username, email, password } = req.body;
+    const avatar = req.file ? req.file.filename : "default_avatar.jpg";
+    let passwordDigest = await middleware.hashPassword(password);
+    let existingUser = await User.findOne({ username: username });
+    let existingEmail = await User.findOne({ email: email });
+
     if (existingUser) {
       return res.send({ msg: 'Username already taken' })
     } else if (existingEmail) {
@@ -50,9 +52,8 @@ const login = async (req, res) => {
         id: user.id,
         email: user.email,
         avatar: user.avatar,
-
-        username: user.username
-      }
+        username: user.username,
+      };
 
       // let token = middleware.createToken(payload)
       let token = jwt.sign(payload, process.env.APP_SECRET)
