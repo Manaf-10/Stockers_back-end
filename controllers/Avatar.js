@@ -1,0 +1,1 @@
+const ShowImage = (req, res) => {};

@@ -7,7 +7,9 @@ const middleware = require("../middleware/authMiddleware");
 const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    const avatar = "default_avatar.jpg";
+    console.log(req.file);
+    const avatar = req.file ? req.file.filename : "default_avatar.jpg";
+
     let passwordDigest = await middleware.hashPassword(password);
     let existingUser = await User.findOne({ username: username });
     let existingEmail = await User.findOne({ email: email });
@@ -48,7 +50,6 @@ const login = async (req, res) => {
         id: user.id,
         email: user.email,
         avatar: user.avatar,
-
         username: user.username,
       };
 
