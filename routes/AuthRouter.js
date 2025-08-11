@@ -1,3 +1,7 @@
+const router = require("express").Router();
+const controller = require("../controllers/AuthController");
+const middleware = require("../middleware/authMiddleware");
+const upload = require("../middleware/multer");
 const router = require('express').Router()
 const controller = require('../controllers/AuthController')
 const middleware = require('../middleware/authMiddleware')
@@ -7,6 +11,8 @@ router.post('/login', controller.login)
 
 router.post('/register', upload.single('avatar'), controller.registerUser)
 
+router.post("/login", controller.login);
+router.post("/register", controller.registerUser);
 router.post('/login', controller.login)
 router.post('/register', controller.registerUser)
 
@@ -18,11 +24,11 @@ router.get(
 )
 
 router.get(
-  '/:user_id',
+  "/:user_id",
   middleware.stripToken,
   middleware.verifyToken,
   controller.viewProfile
-)
+);
 
 //update password
 router.put(
