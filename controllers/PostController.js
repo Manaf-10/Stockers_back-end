@@ -1,7 +1,6 @@
 const { Post } = require('../models')
 require('dotenv').config()
 
-
 const ReadPost = async (req, res) => {
   try {
     // let verifyToken = await middleware.verifyToken()
@@ -15,18 +14,18 @@ const ReadPost = async (req, res) => {
 /////////// only the user can view his posts ///////////
 const GetPostsByUser = async (req, res) => {
   try {
-    const userId = req.params.user_id
-    const posts = await Post.find({ owner: userId }).sort({ createdAt: -1 })
-    res.status(200).json(posts)
+    const { user_id } = req.params
+    const posts = await Post.find({ owner: user_id })
+    res.send(posts)
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    throw error
   }
 }
 /////////// only the user can view his posts ///////////
 
 const CreatePost = async (req, res) => {
   try {
-    const {title,description,owner} = req.body
+    const { title, description, owner } = req.body
     const img = req.file.filename
     const post = await Post.create({
       title,
@@ -42,7 +41,9 @@ const CreatePost = async (req, res) => {
 
 const UpdatePost = async (req, res) => {
   try {
-    const post = await Post.findByIdAndUpdate(req.params.post_id, req.body, {new: true})
+    const post = await Post.findByIdAndUpdate(req.params.post_id, req.body, {
+      new: true
+    })
     res.send(post)
   } catch (error) {
     throw error

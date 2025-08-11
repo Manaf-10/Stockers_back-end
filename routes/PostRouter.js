@@ -1,13 +1,13 @@
 const router = require('express').Router()
 const controller = require('../controllers/PostController')
 const middleware = require('../middleware/authMiddleware')
-const upload = require("../middleware/posts-upload")
+const upload = require('../middleware/posts-upload')
 router.get('/', controller.ReadPost)
 router.post(
   '/',
   middleware.stripToken,
   middleware.verifyToken,
-  upload.single("img"),
+  upload.single('img'),
   controller.CreatePost
 )
 router.put(
@@ -20,10 +20,14 @@ router.delete(
   '/:post_id',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.DeletePost,
+  controller.DeletePost
 )
 
-router.get('/user/:user_id', controller.GetPostsByUser)
-
+router.get(
+  '/user/:user_id',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.GetPostsByUser
+)
 
 module.exports = router
