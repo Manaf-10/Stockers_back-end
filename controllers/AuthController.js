@@ -7,9 +7,7 @@ const middleware = require("../middleware/authMiddleware");
 const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    console.log(req.file);
     const avatar = req.file ? req.file.filename : "default_avatar.jpg";
-
     let passwordDigest = await middleware.hashPassword(password);
     let existingUser = await User.findOne({ username: username });
     let existingEmail = await User.findOne({ email: email });
