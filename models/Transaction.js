@@ -3,8 +3,11 @@ const { Schema } = require('mongoose')
 const TransactionSchema = new Schema(
   {
     symbol: { type: String, required: true },
-    type: { type: String, required: true },
-    enum: ['buy', 'sell'], 
+    type: {
+      type: String,
+      required: true,
+      enum: ['buy', 'sell']
+    },
     actionPrice: { type: String, required: false },
     quantity: { type: String, required: false },
     owner: {

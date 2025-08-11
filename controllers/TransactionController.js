@@ -1,6 +1,5 @@
 const { Transaction } = require('../models')
 require('dotenv').config()
-const jwt = require('jsonwebtoken')
 
 const showTransaction = async (req, res) => {
   try {
