@@ -14,7 +14,14 @@ const ReadPost = async (req, res) => {
 
 const CreatePost = async (req, res) => {
   try {
-    const post = await Post.create({ ...req.body })
+    const {title,description,owner} = req.body
+    const img = req.file.filename
+    const post = await Post.create({
+      title,
+      description,
+      img,
+      owner
+    })
     res.send(post)
   } catch (error) {
     throw error

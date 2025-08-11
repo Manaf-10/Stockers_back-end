@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const controller = require('../controllers/AuthController')
 const middleware = require('../middleware/authMiddleware')
-const upload = require('../middleware/multer')
+const upload = require('../middleware/avatar-upload')
 
 
 router.post('/login', controller.login)
@@ -37,6 +37,7 @@ router.put(
   '/updateProfile/:user_id',
   middleware.stripToken,
   middleware.verifyToken,
+  upload.single('avatar'),
   controller.updateProfile
 
 );

@@ -1,12 +1,13 @@
 const router = require('express').Router()
 const controller = require('../controllers/PostController')
 const middleware = require('../middleware/authMiddleware')
-
+const upload = require("../middleware/posts-upload")
 router.get('/', controller.ReadPost)
 router.post(
   '/',
   middleware.stripToken,
   middleware.verifyToken,
+  upload.single("img"),
   controller.CreatePost
 )
 router.put(

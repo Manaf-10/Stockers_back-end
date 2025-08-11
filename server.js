@@ -28,6 +28,7 @@ app.use('/List', ListRouter)
 
 app.use("/public", express.static(path.join(process.cwd(), "public")));
 app.use("/avatars", express.static(path.join(process.cwd(), "public/avatars")));
+app.use("/posts", express.static(path.join(process.cwd(), "public/posts")));
 
 app.use("/", (req, res) => {
   res.send(`Connected!`);
