@@ -4,17 +4,12 @@ const middleware = require('../middleware/authMiddleware')
 
 
 // to show all
-router.get(
-  '/',
-  middleware.stripToken,
-  middleware.verifyToken,
-  controller.showTransation)
 
 router.get(
   '/:user_id',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.showTransation
+  controller.showTransaction
 )
 router.post(
   '/:user_id',
