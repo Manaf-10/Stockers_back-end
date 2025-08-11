@@ -1,8 +1,6 @@
 const { Post } = require('../models')
 require('dotenv').config()
-const jwt = require('jsonwebtoken')
 
-const middleware = require('../middleware/authMiddleware')
 
 const ReadPost = async (req, res) => {
   try {
