@@ -23,4 +23,7 @@ router.delete(
   controller.DeletePost,
 )
 
+router.get('/user/:user_id', controller.GetPostsByUser)
+
+
 module.exports = router

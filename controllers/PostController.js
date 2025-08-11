@@ -12,6 +12,18 @@ const ReadPost = async (req, res) => {
   }
 }
 
+/////////// only the user can view his posts ///////////
+const GetPostsByUser = async (req, res) => {
+  try {
+    const userId = req.params.user_id
+    const posts = await Post.find({ owner: userId }).sort({ createdAt: -1 })
+    res.status(200).json(posts)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
+/////////// only the user can view his posts ///////////
+
 const CreatePost = async (req, res) => {
   try {
     const {title,description,owner} = req.body
@@ -50,5 +62,6 @@ module.exports = {
   ReadPost,
   CreatePost,
   UpdatePost,
-  DeletePost
+  DeletePost,
+  GetPostsByUser
 }
