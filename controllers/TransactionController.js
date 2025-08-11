@@ -2,10 +2,10 @@ const { Transaction } = require('../models')
 require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
-const showTransation = async (req, res) => {
+const showTransaction = async (req, res) => {
   try {
-    const Transations = await Transaction.find({owner:req.params.user._id})
-    res.send(Transations)
+    const Transactions = await Transaction.find({owner: req.params.user_id})
+    res.send(Transactions)
   } catch (error) {
     throw error
   }
@@ -13,8 +13,8 @@ const showTransation = async (req, res) => {
 
 const CreateTransaction = async (req, res) => {
   try {
-    const transations = await Transaction.create({ ...req.body })
-    res.send(transations)
+    const transactions = await Transaction.create({ ...req.body , owner: req.params.user_id })
+    res.send(transactions)
   } catch (error) {
     throw error
   }
@@ -22,15 +22,15 @@ const CreateTransaction = async (req, res) => {
 
 const CloseTransaction = async (req, res) => {
   try {
-    const transations = await Transaction.create({ ...req.body })
-    res.send(transations)
+    const transactions = await Transaction.findByIdAndUpdate(req.params.transaction_id ,req.body,{new: true})
+    res.send(transactions)
   } catch (error) {
     throw error
   }
 }
 
 module.exports = {
-  showTransation,
+  showTransaction,
   CreateTransaction,
   CloseTransaction
 }
