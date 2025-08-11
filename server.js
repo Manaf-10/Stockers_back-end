@@ -7,6 +7,8 @@ const AuthRouter = require('./routes/AuthRouter')
 const PostRouter = require('./routes/PostRouter')
 const StocksRouter = require('./routes/StocksRouter')
 const TransactionRouter = require('./routes/TransactionRouter')
+const ListRouter = require('./routes/ListingRouter')
+
 const PORT = process.env.PORT || 3000
 const db = require('./db')
 
@@ -21,6 +23,7 @@ app.use('/auth', AuthRouter)
 app.use('/posts', PostRouter)
 app.use('/stocks', StocksRouter)
 app.use('/transactions', TransactionRouter)
+app.use('/List', ListRouter)
 
 app.use('/', (req, res) => {
   res.send(`Connected!`)

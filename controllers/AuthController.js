@@ -96,7 +96,6 @@ const updatePassword = async (req, res) => {
 
 const CheckSession = async (req, res) => {
   try {
-    console.log('hi')
     const { payload } = res.locals
     res.status(200).send(payload)
   } catch (error) {
