@@ -2,9 +2,7 @@ const router = require("express").Router();
 const controller = require("../controllers/AuthController");
 const middleware = require("../middleware/authMiddleware");
 const upload = require("../middleware/multer");
-const controller = require('../controllers/AuthController')
-const middleware = require('../middleware/authMiddleware')
-const upload = require('../middleware/multer')
+
 
 router.post('/login', controller.login)
 
