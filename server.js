@@ -1,3 +1,4 @@
+
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
@@ -29,6 +30,7 @@ app.use("/avatars", express.static(path.join(process.cwd(), "public/avatars")));
 app.use("/", (req, res) => {
   res.send(`Connected!`);
 });
+
 
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`);

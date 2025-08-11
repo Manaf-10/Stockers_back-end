@@ -3,9 +3,10 @@ const controller = require("../controllers/AuthController");
 const middleware = require("../middleware/authMiddleware");
 const upload = require("../middleware/multer");
 
-router.post("/login", controller.login);
 
-router.post("/register", upload.single("avatar"), controller.registerUser);
+router.post('/login', controller.login)
+
+router.post('/register', upload.single('avatar'), controller.registerUser)
 
 router.get(
   "/session",
@@ -13,6 +14,7 @@ router.get(
   middleware.verifyToken,
   controller.CheckSession
 );
+
 
 router.get(
   "/:user_id",
@@ -23,18 +25,20 @@ router.get(
 
 //update password
 router.put(
-  "/update/:user_id",
+  '/update/:user_id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.updatePassword
-);
+)
 
 //update profile
 router.put(
-  "/updateProfile/:user_id",
+  '/updateProfile/:user_id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.updateProfile
+
 );
 
-module.exports = router;
+
+module.exports = router
