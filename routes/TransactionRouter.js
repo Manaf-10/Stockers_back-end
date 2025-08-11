@@ -3,6 +3,7 @@ const controller = require("../controllers/TransactionController");
 const middleware = require("../middleware/authMiddleware");
 
 // to show all
+
 router.get(
   "/",
   middleware.stripToken,
@@ -16,6 +17,7 @@ router.get(
   middleware.verifyToken,
   controller.showTransaction
 );
+
 router.post(
   "/:user_id",
   middleware.stripToken,
