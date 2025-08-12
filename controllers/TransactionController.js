@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken')
 
 const showTransaction = async (req, res) => {
   try {
-    const userId = res.locals.payload.id
-    const Transactions = await Transaction.find({ owner: userId }).sort({ createdAt: -1 })
+    const user_id = req.params.user_id
+    const Transactions = await Transaction.find({ owner: user_id })
     res.send(Transactions)
   } catch (error) {
     throw error

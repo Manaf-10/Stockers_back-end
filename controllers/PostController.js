@@ -3,7 +3,8 @@ require('dotenv').config()
 
 const ReadPost = async (req, res) => {
   try {
-    const posts = await Post.find({})
+    const posts = await Post.find({}).populate('owner')
+    console.log(posts)
     res.send(posts)
   } catch (error) {
     throw error
@@ -15,7 +16,6 @@ const GetPostsByUser = async (req, res) => {
   try {
     const user_id = req.params.user_id
     const posts = await Post.find({ owner: user_id })
-    console.log(user_id)
     res.send(posts)
   } catch (error) {
     throw error
