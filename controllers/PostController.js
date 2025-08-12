@@ -3,7 +3,6 @@ require('dotenv').config()
 
 const ReadPost = async (req, res) => {
   try {
-    // let verifyToken = await middleware.verifyToken()
     const posts = await Post.find({})
     res.send(posts)
   } catch (error) {
@@ -14,8 +13,9 @@ const ReadPost = async (req, res) => {
 /////////// only the user can view his posts ///////////
 const GetPostsByUser = async (req, res) => {
   try {
-    const { user_id } = req.params
+    const user_id = req.params.user_id
     const posts = await Post.find({ owner: user_id })
+    console.log(user_id)
     res.send(posts)
   } catch (error) {
     throw error
