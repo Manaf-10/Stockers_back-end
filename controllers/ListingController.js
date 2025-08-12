@@ -3,7 +3,7 @@ require('dotenv').config()
 
 const getTrackedLists = async (req, res) => {
   try {
-    const list = await List.findOneAndUpdate({
+    const list = await List.findOne({
       type: 'tracked',
       owner: req.params.user_id
     })
@@ -15,7 +15,7 @@ const getTrackedLists = async (req, res) => {
 
 const getOwnedLists = async (req, res) => {
   try {
-    const list = await List.findOneAndUpdate({
+    const list = await List.findOne({
       type: 'owned',
       owner: req.params.user_id
     })
@@ -67,6 +67,10 @@ const addToTrackedList = async (req, res) => {
             amount: req.body.amount
           }
         }
+      },
+      {
+        new: true, 
+        upsert: true 
       }
     )
 

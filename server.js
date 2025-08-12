@@ -24,7 +24,7 @@ app.use("/auth", AuthRouter);
 app.use("/posts", PostRouter);
 app.use("/stocks", StocksRouter);
 app.use("/transactions", TransactionRouter);
-app.use('/List', ListRouter)
+app.use('/Lists', ListRouter)
 
 app.use("/public", express.static(path.join(process.cwd(), "public")));
 app.use("/avatars", express.static(path.join(process.cwd(), "public/avatars")));
