@@ -18,4 +18,5 @@ const TransactionSchema = new Schema(
   { timestamps: true }
 )
 
+
 module.exports = TransactionSchema

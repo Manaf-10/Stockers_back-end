@@ -41,10 +41,10 @@ const addToOwnedList = async (req, res) => {
             amount: req.body.amount
           }
         }
-      }
+      },
+      { upsert: true }
     )
 
-    // res.send(list.stocks[list.stocks.length - 1])
     res.send({ msg: 'added' })
   } catch (error) {
     console.log(error)
@@ -69,8 +69,8 @@ const addToTrackedList = async (req, res) => {
         }
       },
       {
-        new: true, 
-        upsert: true 
+        new: true,
+        upsert: true
       }
     )
 
@@ -81,9 +81,37 @@ const addToTrackedList = async (req, res) => {
   }
 }
 
+const deleteTracked = async (req, res) => {
+  try {
+    await List.updateOne(
+      { type: 'tracked', owner: req.params.user_id },
+      { $pull: { stocks: { symbol: req.body.symbol } } }
+    )
+
+    res.send({ msg: `removed ${req.body.symbol} from tracked` })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const deleteOwned = async (req, res) => {
+  try {
+    await List.updateOne(
+      { type: 'owned', owner: req.params.user_id },
+      { $pull: { stocks: { symbol: req.body.symbol } } }
+    )
+
+    res.send({ msg: `removed ${req.body.symbol} from owned` })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   getTrackedLists,
   getOwnedLists,
   addToOwnedList,
-  addToTrackedList
+  addToTrackedList,
+  deleteTracked,
+  deleteOwned
 }

@@ -26,7 +26,6 @@ router.post(
 );
 router.put(
   "/:transaction_id",
-
   middleware.stripToken,
   middleware.verifyToken,
   controller.CloseTransaction
