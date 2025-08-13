@@ -106,9 +106,24 @@ const CheckSession = async (req, res) => {
 const updateProfile = async (req, res) => {
   try {
     // console.log(res.locals)
+    let response
+    const { username, email } = req.body
     if (res.locals.payload.id === req.params.user_id) {
+      if (req.file) {
+        let avatar = req.file.filename
+        response = {
+          username,
+          email,
+          avatar
+        }
+      } else {
+        response = {
+          username,
+          email
+        }
+      }
       //only updtes if user id matches parameter
-      const user = await User.findByIdAndUpdate(req.params.user_id, req.body, {
+      const user = await User.findByIdAndUpdate(req.params.user_id, response, {
         new: true
       })
       res.send(user)
