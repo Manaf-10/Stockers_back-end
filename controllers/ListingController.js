@@ -30,8 +30,7 @@ const addToOwnedList = async (req, res) => {
     const list = await List.findOneAndUpdate(
       {
         type: 'owned',
-        owner: req.params.user_id,
-        'stocks.symbol': symbol
+        owner: req.params.user_id
       },
       {
         $push: {
