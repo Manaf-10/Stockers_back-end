@@ -21,6 +21,16 @@ const GetPostsByUser = async (req, res) => {
     throw error;
   }
 };
+
+const GetPostsToEdit = async (req, res) => {
+  try {
+    const post_id = req.params.post_id;
+    const posts = await Post.findById(post_id);
+    return res.send({posts});
+  } catch (error) {
+    throw error;
+  }
+};
 /////////// only the user can view his posts ///////////
 
 const CreatePost = async (req, res) => {
@@ -69,4 +79,5 @@ module.exports = {
   UpdatePost,
   DeletePost,
   GetPostsByUser,
+  GetPostsToEdit
 };
