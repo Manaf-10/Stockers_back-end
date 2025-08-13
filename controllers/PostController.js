@@ -14,7 +14,7 @@ const ReadPost = async (req, res) => {
 /////////// only the user can view his posts ///////////
 const GetPostsByUser = async (req, res) => {
   try {
-    const { user_id } = req.params.user_id;
+    const user_id = req.params.user_id;
     const posts = await Post.find({ owner: user_id });
     res.send(posts);
   } catch (error) {
