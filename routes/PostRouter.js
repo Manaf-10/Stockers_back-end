@@ -30,4 +30,11 @@ router.get(
   controller.GetPostsByUser
 )
 
+router.get(
+  '/:post_id',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.GetPostsToEdit
+)
+
 module.exports = router
