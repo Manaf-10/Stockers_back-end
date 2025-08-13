@@ -8,4 +8,7 @@ router.get('/owned/:user_id', controller.getOwnedLists)
 router.post('/tracked/:user_id', controller.addToTrackedList)
 router.post('/owned/:user_id', controller.addToOwnedList)
 
+router.put('/owned/:user_id', controller.deleteOwned)
+router.put('/tracked/:user_id', controller.deleteTracked)
+
 module.exports = router
