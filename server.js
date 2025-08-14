@@ -8,7 +8,7 @@ const AuthRouter = require("./routes/AuthRouter");
 const PostRouter = require("./routes/PostRouter");
 const StocksRouter = require("./routes/StocksRouter");
 const TransactionRouter = require("./routes/TransactionRouter");
-const ListRouter = require('./routes/ListingRouter')
+const ListRouter = require("./routes/ListingRouter");
 
 const PORT = process.env.PORT || 3000;
 const db = require("./db");
@@ -24,16 +24,13 @@ app.use("/auth", AuthRouter);
 app.use("/posts", PostRouter);
 app.use("/stocks", StocksRouter);
 app.use("/transactions", TransactionRouter);
-app.use('/Lists', ListRouter)
+app.use("/Lists", ListRouter);
 
 app.use("/public", express.static(path.join(process.cwd(), "public")));
-app.use("/avatars", express.static(path.join(process.cwd(), "public/avatars")));
-app.use("/posts", express.static(path.join(process.cwd(), "public/posts")));
 
 app.use("/", (req, res) => {
   res.send(`Connected!`);
 });
-
 
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`);
