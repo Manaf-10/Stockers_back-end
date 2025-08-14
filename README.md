@@ -59,4 +59,4 @@ make decisions and easy new users to the stock market , can also send posts and 
 - Graphs: [Charts.js](https://www.chartjs.org)
 - Stocks API: [Alpha Vantage](https://www.alphavantage.co)
 - Animated  background: [vantajs](https://www.vantajs.com/)
-- Boostrab: [getbootstrap](https://getbootstrap.com/)
+- Bootstrap: [getbootstrap](https://getbootstrap.com/)
