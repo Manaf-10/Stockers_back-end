@@ -1,4 +1,4 @@
-# Stocker (front-end)
+# Stocker (Back-end)
 
 # Date 4/8/2025
 
