@@ -1,4 +1,4 @@
-# Stocker (front-end)
+# Stocker (Back-end)
 
 # Date 4/8/2025
 
@@ -17,6 +17,9 @@ able to track specific stocks if they change in price , the website represents t
 state of the stock of a company through a line chart that can make it easy to
 make decisions and easy new users to the stock market , can also send posts and veiw posts of others related to stocks and their buying options
 
+
+Feel free to try it out here [Stockers](https://stockers.surge.sh/)
+
 # Component Hierarchy
 ![img](./readMeImgs/lastDay.png)
 <br><br>
@@ -24,6 +27,12 @@ make decisions and easy new users to the stock market , can also send posts and 
 
 # ERD
 ![img](./readMeImgs/image.png)
+<br><br>
+<br><br>
+
+
+# Logo
+![img](./readMeImgs/Untitled_design-removebg-preview.png)
 <br><br>
 <br><br>
 
@@ -41,9 +50,29 @@ make decisions and easy new users to the stock market , can also send posts and 
 <br><br>
 <br><br>
 
-
-### and you can view more from  [here](https://www.canva.com/design/DAGvYY53A_A/Ys5SFNqTUrPE1dNtHWTxYQ/edit)
+![img](./readMeImgs/6.png)
 <br><br>
+<br><br>
+
+![img](./readMeImgs/7.png)
+<br><br>
+<br><br>
+
+![img](./readMeImgs/8.png)
+<br><br>
+<br><br>
+
+![img](./readMeImgs/9.png)
+<br><br>
+<br><br>
+
+
+
+# future enhancement
+- add a search bar to filter products
+- A batter API 
+- Enhance the Styling
+- Notification system
 
 # Technologies Used
 
@@ -60,3 +89,7 @@ make decisions and easy new users to the stock market , can also send posts and 
 - Stocks API: [Alpha Vantage](https://www.alphavantage.co)
 - Animated  background: [vantajs](https://www.vantajs.com/)
 - Boostrab: [getbootstrap](https://getbootstrap.com/)
+
+
+# Front-end Repo
+- Here's the Back-end repo, go check it out!: [Back-End](https://github.com/Manaf-10/Stockers_front-end)
