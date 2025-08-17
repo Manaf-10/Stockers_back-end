@@ -92,4 +92,4 @@ Feel free to try it out here [Stockers](https://stockers.surge.sh/)
 
 
 # Front-end Repo
-- Here's the Back-end repo, go check it out!: [Back-End](https://github.com/Manaf-10/Stockers_front-end)
+- Here's the Back-end repo, go check it out!: [Front-End](https://github.com/Manaf-10/Stockers_front-end)
